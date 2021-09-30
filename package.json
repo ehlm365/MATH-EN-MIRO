@@ -1,0 +1,15 @@
+{
+  "name": "extra-notes",
+  "private": true,
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": { "dav": "browser-sync start --server 'publico' --files 'publico'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "description": "",
+  "dependencies": {
+    "browser-sync": "^2.27.5"
+  }
+}
