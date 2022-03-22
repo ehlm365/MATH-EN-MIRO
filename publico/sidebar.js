@@ -17,7 +17,7 @@ function updateSelection(selectedWidgets) {
     saveEditorData()
     lastSelectedWidgetId = selectedWidget.id
     widgetName.innerText = selectedWidget.type
-    editor.value = getData(lastSelectedWidgetId)
+    demoSource.value = getData(lastSelectedWidgetId)
   } else {
     showElement(placeholder)
     hideElement(widgetInfo)
