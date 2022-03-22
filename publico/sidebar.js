@@ -55,7 +55,7 @@ const LS_KEY = 'rtb-plugin-widget-info'
 
 function saveData(widgetId, text) {
   let data = JSON.parse(localStorage.getItem(LS_KEY)) || {}
-  data[widgetId] = demoSource.value
+  data[widgetId] = text
   localStorage.setItem(LS_KEY, JSON.stringify(data))
 }
 
