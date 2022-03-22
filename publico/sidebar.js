@@ -53,7 +53,7 @@ async function saveEditorData() {
 
 const LS_KEY = 'rtb-plugin-widget-info'
 
-function saveData(widgetId, text) {
+function saveData(widgetId, demosource) {
   let data = JSON.parse(localStorage.getItem(LS_KEY)) || {}
   data[widgetId] = text
   localStorage.setItem(LS_KEY, JSON.stringify(data))
