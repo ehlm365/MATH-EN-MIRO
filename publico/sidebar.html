@@ -1,28 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://miro.com/app/static/styles.1.0.css" />
-    <script>
-      MathJax = {
-        "fast-preview": {
-                   disabled: true
-          },
-          
-          AuthorInit: function() {
-            MathJax.Hub.Register.StartupHook('End', function() {
-              MathJax.Hub.processSectionDelay = 1
-              var demoSource = document.getElementById('demoSource')
-              var demoRendering = document.getElementById('demoRendering')
-              var math = MathJax.Hub.getAllJax('demoRendering')[0]
-              demoSource.addEventListener('input', function() {
-                MathJax.Hub.Queue(['Text', math, demoSource.value])
-              })
-            })
-          }
-        }
-    </script>
-    <style>
+<!doctype html>
+<html lang=en-US>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="https://miro.com/app/static/styles.1.0.css" />	
+<title>AsciiMath</title>
+	<script>
+		window.MathJax = {
+				"fast-preview": {
+       					disabled: true
+				},
+				AuthorInit: function() {
+					MathJax.Hub.Register.StartupHook('End', function() {
+						MathJax.Hub.processSectionDelay = 0
+						var demoSource = document.getElementById('demoSource')
+						var demoRendering = document.getElementById('demoRendering')
+						var math = MathJax.Hub.getAllJax('demoRendering')[0]
+						demoSource.addEventListener('input', function() {
+							MathJax.Hub.Queue(['Text', math, demoSource.value])
+						})
+					})
+				}
+			}
+	</script>
+	<script async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML-full">
+	</script>
+
+
+	<link
+		rel=icon
+		href=img/favicon.ico
+		sizes="16x16 32x32 48x48 64x64 128x128"
+		type=image/x-icon>
+	<link href=http://fonts.googleapis.com/css?family=Quicksand
+			rel=stylesheet type=text/css>
+	<link rel=stylesheet href=css/scree.css>
+	<meta name=viewport
+			content="width=device-width, initial-scale=0.8,
+			minimum-scale=0.8, maximum-scale=10">
+	
+			<style>
       .rtb-sidebar-caption {
         font-size: 14px;
         font-weight: bold;
@@ -54,34 +71,68 @@
         resize: none;
       }
     </style>
-  </head>
-
-  <body>
-    
-    <div class="rtb-sidebar-caption">Extra notes</div>
+	</head>
+<body>
+<div class="rtb-sidebar-caption">Extra notes</div>
     <div class="no-selected-widget">Please select one widget <br />to add notes ✏️</div>
     <div class="widget-info">
       <p id="widget-name"></p>
-      <div class="leftColumn">
-        <label for="demoSource">Input:</label>
-        <br/>
-    
-        <textarea class="ioArea" id="demoSource">sum_(i=1)^n i^3=((n(n+1))/2)^2</textarea>
-      </div>
-    
-      <div class="rightColumn">
-        <label for="demoRendering">Rendering:</label>
-        <br/>
-            
-        <div 
-        class="ioArea" id="demoRendering">`sum_(i=1)^n i^3=((n(n+1))/2)^2`
-        </div>
-      </div>
-      
-    </div>
-    <script src="https://miro.com/app/static/sdk.1.1.js"></script>
-    <script src="js/sidebar.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
 
-  </body>
-</html>
+
+<div id="wrapper">
+
+<nav>
+	<h1>AsciiMath</h1>
+
+</nav>
+
+
+<section id="about">
+		
+	<div class="leftColumn">
+		<label for="demoSource">Input:</label>
+		<br/>
+
+		<textarea class="ioArea" id="demoSource">{:(),
+  (),
+  (),
+  (),
+  ():}</textarea>
+	</div>
+
+	<div class="rightColumn">
+		<label for="demoRendering">Rendering:</label>
+		<br/>
+
+		<div class="ioArea" id="demoRendering">
+			`sum_(i=1)^n i^3=((n(n+1))/2)^2`
+		</div>
+	</div>
+</section>	
+
+	<center><div class="ASCIIMathCalculator"></div></center>
+<section>
+<p>
+More calculator areas:<br>
+<textarea id="in1" rows="7" cols="40" onkeyup="calculate('in1','out1')">
+2sin^-1(1)</textarea> &nbsp; <span id="out1"></span>
+</p>
+</section>
+<section><p>
+<textarea id="in2" rows="5" cols="30"
+onkeyup="calculate('in2','out2');calculate('in3','out3')">
+a=5; b=4; c=-1; (-b+sqrt(b^2-4a*c))/(2a)
+</textarea> &nbsp; <span id="out2"></span>
+<br/>
+<textarea id="in3" rows="5" cols="30"
+onkeyup="calculate('in2','out2');calculate('in3','out3')">
+(-b-sqrt(b^2-4a*c))/(2a)</textarea> &nbsp; <span id="out3"></span>
+
+</p>
+	
+</section></div>
+<script type="text/javascript" src="AsciimathML.js"></script>
+<script type="text/javascript">mathfontsize=".9em"</script>
+<script src="https://miro.com/app/static/sdk.1.1.js"></script>
+    <script src="js/sidebar.js"></script>
+</body></html>
