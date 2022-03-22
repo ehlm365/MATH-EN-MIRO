@@ -17,7 +17,7 @@ function updateSelection(selectedWidgets) {
     saveEditorData()
     lastSelectedWidgetId = selectedWidget.id
     widgetName.innerText = selectedWidget.type
-    editor.value = getData(lastSelectedWidgetId)
+    demoSource.value = getData(lastSelectedWidgetId)
   } else {
     showElement(placeholder)
     hideElement(widgetInfo)
@@ -42,11 +42,11 @@ miro.onReady(() => {
   })
 })
 
-editor.addEventListener('change', saveEditorData)
+demoSource.addEventListener('change', saveEditorData)
 
 async function saveEditorData() {
   if (lastSelectedWidgetId) {
-    saveData(lastSelectedWidgetId, editor.value)
+    saveData(lastSelectedWidgetId, demoSource.value)
     lastSelectedWidgetId = undefined
   }
 }
